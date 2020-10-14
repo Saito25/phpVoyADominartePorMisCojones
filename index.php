@@ -5,392 +5,161 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Manuel Pérez Soto - Boletín Variables</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Manuel Pérez Soto - Ejercicio de cadenas</title>
 </head>
 <body>
-
     <header class="header">
-        <div class="header-top-line"></div>
-        <div class="header-bottom-line">
-            <div class="header-margin">
-                <h1>Manuel Pérez Soto - Boletín variables</h1>
-            </div>
+        <div class="header-container">
+            <h1 class="header-title">Pérez Soto Manuel - Ejercicio de cadenas</h1>
+            <p class="header-text">Asignatura de HLC</p>
         </div>
     </header>
 
     <main class="main">
-        <nav class="main-nav">
-            <ol class="main-nav-ol">
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-one" class="main-nav-ol-li-a">1</a>
-                </li>
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-two" class="main-nav-ol-li-a">2</a>
-                </li>
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-three" class="main-nav-ol-li-a">3</a>
-                </li>
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-four" class="main-nav-ol-li-a">4</a>
-                </li>
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-five" class="main-nav-ol-li-a">5</a>
-                </li>
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-six" class="main-nav-ol-li-a">6</a>
-                </li>
-                <li class="main-nav-ol-li">
-                    <a href="#exercise-seven" class="main-nav-ol-li-a">7</a>
-                </li>
-            </ol>
-        </nav>
-
         <section class="main-section">
-            <article id="exercise-one" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 1: Mostrar nombre y curso</h2>
-<pre><code><\?php
-    echo ("Manuel Pérez Soto - 2º CFGS DAM");
-?>
-</code>
-                        <p>Salida:</p>
-<samp><?php
-    echo ("Manuel Pérez Soto - 2º CFGS DAM");
-    ?> </samp>
-                    </pre>
+            <article class="main-section-article">
+                <p class="main-section-article-p">
+                    <a href="#exercise1" class="main-section-article-p-a">Ejercicio 1</a>
+                </p>
+
+                <div id="exercise1" class="main-section-article-div">
+                    <pre class="main-section-article-div-pre">
+1. Escribe un script PHP para:
+a) transforma un cadena con todas sus letras en mayúsculas.
+b) transforma un cadena con todas sus letras en minúsuclas.
+c) primera letra de la cadena en mayúsculas.
+d) primera letra de cada palabra de mi cadena en mayúsculas.
+La cadena a transformar es: "En un lugar de la mancha de cuyo nombre"</pre>
+
+                    <div class="main-section-article-div-div">
+                        <form action="index.php" method="post" class="form-exercise">
+                            <label for="exercise1text">Texto a convertir</label>
+                            <input type="text" name="exercise1text" id="exercise1text">
+                            <button type="submit">Enviar</button>
+                        </form>
+
+                        <div class="main-section-article-div-div-exercise1">
+                            <?php
+                                print("<p>Texto en mayúsculas: ");
+                                if(isset($_POST["exercise1text"])) {
+                                    if($_POST["exercise1text"] != "") {
+                                        $reslt = strtoupper($_POST["exercise1text"]);
+                                        print("$reslt </p>");
+                                    } else {
+                                        print("</p>");
+                                    }
+
+                                } else {
+                                    print("</p>");
+                                }
+                            ?>
+
+                            <?php
+                            print("<p>Texto en minúsculas: ");
+                            if(isset($_POST["exercise1text"])) {
+                                if($_POST["exercise1text"] != "") {
+                                    $reslt = strtolower($_POST["exercise1text"]);
+                                    print("$reslt </p>");
+                                } else {
+                                    print("</p>");
+                                }
+
+                            } else {
+                                print("</p>");
+                            }
+                            ?>
+
+                            <?php
+                            print("<p>Texto primera en mayúscula: ");
+                            if(isset($_POST["exercise1text"])) {
+                                if($_POST["exercise1text"] != "") {
+                                    $reslt = ucfirst(($_POST["exercise1text"]));
+                                    print("$reslt </p>");
+                                } else {
+                                    print("</p>");
+                                }
+
+                            } else {
+                                print("</p>");
+                            }
+                            ?>
+
+                            <?php
+                            print("<p>Texto primera letra de cada palabra en mayúscula: ");
+                            if(isset($_POST["exercise1text"])) {
+                                if($_POST["exercise1text"] != "") {
+                                    $reslt = ucwords(($_POST["exercise1text"]));
+                                    print("$reslt </p>");
+                                } else {
+                                    print("</p>");
+                                }
+
+                            } else {
+                                print("</p>");
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+
                 </div>
             </article>
 
-            <article id="exercise-two" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 2: Mostrar nombre, dirección, curso y asignaturas</h2>
-                    <pre><code><\?php
-    echo ("Manuel Pérez Soto - C/ Algún sitio de algeciras - 2º CFGS DAM\n");
-    echo ("PMDMO, PSPRO, INTERFACES, HLC, EIE, ACDTO")
-?>
-</code>
-                        <p>Salida:</p>
-<samp><?php
-    echo ("Manuel Pérez Soto - C/ Algún sitio de algeciras - 2º CFGS DAM\n");
-    echo ("PMDMO, PSPRO, INTERFACES, HLC, EIE, ACDTO")
-    ?> </samp>
-                    </pre>
+            <article class="main-section-article">
+                <p class="main-section-article-p">
+                    <a href="#exercise2" class="main-section-article-p-a">Ejercicio 2</a>
+                </p>
+
+                <div id="exercise2" class="main-section-article-div">
+                    <pre class="main-section-article-div-pre">
+2. Escribe un script PHP para dividir la siguiente cadea:
+Cadena de entrada: '082307'
+Salida esperada : 08:23:07</pre>
+
+                    <div class="main-section-article-div-div">
+                        <form action="index.php" method="post" class="form-exercise">
+                            <label for="exercise2text">Número a formatear</label>
+                            <input type="number" name="exercise2text" id="exercise2text">
+                            <button type="submit">Enviar</button>
+                        </form>
+
+                        <div class="main-section-article-div-div-exercise1">
+                            <?php
+                            print("<p>Número formateado: ");
+                            if(isset($_POST["exercise2text"])) {
+                                if($_POST["exercise2text"] != "") {
+                                    $result = null;
+                                    $string = $_POST["exercise2text"];
+                                    $lengthNumber = strlen(strval($string));
+
+                                    if($lengthNumber % 2 != 0) {
+                                        $result = substr($_POST["exercise2text"], 0, 1) . ":";
+                                        $string = substr($_POST["exercise2text"], 1);
+                                    }
+
+                                    for($i = 1; $i <= strlen($string); $i += 2) {
+                                        $result .= substr($string, $i - 1, 2) . ":";
+                                    }
+
+                                    $result = substr($result, 0, strlen($result) - 1);
+
+                                    print("$result </p>");
+                                } else {
+                                    print("</p>");
+                                }
+
+                            } else {
+                                print("</p>");
+                            }
+                            ?>
+                        </div>
+                    </div>
+
                 </div>
             </article>
 
-            <article id="exercise-three" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 3: horario</h2>
-<pre><code><\?php
-$one = "ACDAT";
-$two = "EIE";
-$three = "PMDMO";
-$four = "PSPRO";
-$five = "HLC";
-$six = "SGMPD";
-$seven = "DEINT";
-$none = "Recreo";
-print("
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>8:15 - 9:15</th>
-            <td>$four</td>
-            <td>$five</td>
-            <td>$three</td>
-            <td>$seven</td>
-            <td>$one</td>
-        </tr>
-        
-         <tr>
-            <th>9:15 - 10:15</th>
-            <td>$five</td>
-            <td>$seven</td>
-            <td>$three</td>
-            <td>$three</td>
-            <td>$seven</td>
-         </tr>
-        
-         <tr> 
-            <th>10:15 - 11:15</th>
-            <td>$one</td>
-            <td>$seven</td>
-            <td>$five</td>
-            <td>$three</td>
-            <td>$seven</td>
-         </tr>
-         
-         <tr>
-            <th>11:15 - 11:45</th>
-            <td colspan='5'>$none</td>
-         </tr>
-         
-         <tr>
-            <th>11:45 - 12:45</th>
-            <td>$four</td>
-            <td>$four</td>
-            <td>$seven</td>
-            <td>$four</td>
-            <td>$six</td>
-         </tr>
-         
-         <tr>
-            <th>12:45 - 13:45</th>
-            <td>$seven</td>
-            <td>$four</td>
-            <td>$two</td>
-            <td>$two</td>
-            <td>$two</td>
-         </tr>
-                <tr>
-            <th>13:45 - 14:45</th>
-            <td>$six</td>
-            <td>$two</td>
-            <td>$six</td>
-            <td>$six</td>
-            <td>$four</td>
-        </tr>
-    </tbody>
-</table>");
-?>
-</code>
-                        <p>Salida:</p>
-<samp><?php
-$one = "ACDAT";
-$two = "EIE";
-$three = "PMDMO";
-$four = "PSPRO";
-$five = "HLC";
-$six = "SGMPD";
-$seven = "DEINT";
-$none = "Recreo";
-echo("<table class=\"table\">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miércoles</th>
-                <th>Jueves</th>
-                <th>Viernes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>8:15 - 9:15</th>
-                <td>$four</td>
-                <td>$five</td>
-                <td>$three</td>
-                <td>$seven</td>
-                <td>$one</td>
-            </tr>
-            
-             <tr>
-                <th>9:15 - 10:15</th>
-                <td>$five</td>
-                <td>$seven</td>
-                <td>$three</td>
-                <td>$three</td>
-                <td>$seven</td>
-             </tr>
-            
-             <tr> 
-                <th>10:15 - 11:15</th>
-                <td>$one</td>
-                <td>$seven</td>
-                <td>$five</td>
-                <td>$three</td>
-                <td>$seven</td>
-             </tr>
-             
-             <tr>
-                <th>11:15 - 11:45</th>
-                <td colspan='5'>$none</td>
-             </tr>
-             
-             <tr>
-                <th>11:45 - 12:45</th>
-                <td>$four</td>
-                <td>$four</td>
-                <td>$seven</td>
-                <td>$four</td>
-                <td>$six</td>
-             </tr>
-             
-             <tr>
-                <th>12:45 - 13:45</th>
-                <td>$seven</td>
-                <td>$four</td>
-                <td>$two</td>
-                <td>$two</td>
-                <td>$two</td>
-             </tr>
-                    <tr>
-                <th>13:45 - 14:45</th>
-                <td>$six</td>
-                <td>$two</td>
-                <td>$six</td>
-                <td>$six</td>
-                <td>$four</td>
-            </tr>
-        </tbody>
-    </table>");
-?>
-</samp>
-                    </pre>
-                </div>
-            </article>
-
-            <article id="exercise-four" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 4: Mostrar nombre y curso con variables</h2>
-                    <pre><code><\?php
-    $name = "Manuel Pérez Soto";
-    $ciclo = "2º CFGS DAM";
-    echo ($name . " - " . $ciclo);
-?>
-</code>
-                        <p>Salida:</p>
-<samp><?php
-    $name = "Manuel Pérez Soto";
-    $ciclo = "2º CFGS DAM";
-    echo ($name . " - " . $ciclo);
-    ?> </samp>
-                    </pre>
-                </div>
-            </article>
-
-            <article id="exercise-five" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 5: Divisas americana y australiana</h2>
-                    <pre><code><\?php
-    $dolarToAustralian = 1.37995;
-    $australianToDolar = 0.724662;
-    print("
-    <form action=\"index.php\" method=\"post\">
-        Conversor de divisas:
-        USA: <input type=\"number\" name=\"american\" value='0'/>
-        Australia: <input type=\"number\" name=\"australian\" value='0'/>
-        <input type=\"submit\" />
-    </form>
-    ");
-     print("<p>" . (double)($_POST['american'] * $dolarToAustralian) . " Dolar americano a Australiano</p>");
-     print("<p>" . (double)($_POST['australian'] * $australianToDolar) . " Dolar australiano a americano</p>");
-?>
-
-</code>
-                        <p>Salida:</p>
-<samp><?php
-    $dolarToAustralian = 1.37995;
-    $australianToDolar = 0.724662;
-    print("
-    <form action=\"index.php\" method=\"post\">
-        Conversor de divisas:
-        USA: <input type=\"number\" name=\"american\" value='0'/>
-        Australia: <input type=\"number\" name=\"australian\" value='0'/>
-        <input type=\"submit\" />
-    </form>
-    ");
-     print("<p>" . (double)($_POST['american'] * $dolarToAustralian) . " Dolar americano a Australiano</p>");
-     print("<p>" . (double)($_POST['australian'] * $australianToDolar) . " Dolar australiano a americano</p>");
-    ?> </samp>
-                    </pre>
-                </div>
-            </article>
-
-            <article id="exercise-six" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 6: Divisas libras y dolares australianos</h2>
-                    <pre><code><\?php
-    $libraToAustralian = 1.80109;
-    $australianToLibra = 0.55494;
-    print("
-    <form action=\"index.php\" method=\"post\">
-        Conversor de divisas:
-        USA: <input type=\"number\" name=\"libra\" value='0'/>
-        Australia: <input type=\"number\" name=\"australian\" value='0'/>
-        <input type=\"submit\" />
-    </form>
-    ");
-     print("<p>" . (double)($_POST['libra'] * $libraToAustralian) . " Libra a australiano</p>");
-     print("<p>" . (double)($_POST['australian'] * $australianToLibra) . " Dolar australiano a libra</p>");
-?>
-
-</code>
-                        <p>Salida:</p>
-<samp><?php
-    $libraToAustralian = 1.80109;
-    $australianToLibra = 0.55494;
-    print("
-    <form action=\"index.php\" method=\"post\">
-        Conversor de divisas:
-        USA: <input type=\"number\" name=\"libra\" value='0'/>
-        Australia: <input type=\"number\" name=\"australian\" value='0'/>
-        <input type=\"submit\" />
-    </form>
-    ");
-     print("<p>" . (double)($_POST['libra'] * $libraToAustralian) . " Libra a australiano</p>");
-     print("<p>" . (double)($_POST['australian'] * $australianToLibra) . " Dolar australiano a libra</p>");
-    ?> </samp>
-                    </pre>
-                </div>
-            </article>
-
-            <article id="exercise-seven" class="main-section-arcticle">
-                <div class="main-section-article-div">
-                    <h2>Ejercicio 7: Pirámide invertida</h2>
-                    <pre><code><\?php
-    $rows = 10;
-    for ($i = $rows; $i >= 1; $i--) {
-
-        for($j = 1; $j <= $rows - $i; $j++) {
-            print(" ");
-        }
-
-        for($j = 1; $j <= $i; $j++) {
-            print("* ");
-        }
-
-        print ("\n");
-    }
-?>
-</code>
-                        <p>Salida:</p>
-<samp><?php
-    $rows = 10;
-    for ($i = $rows; $i >= 1; $i--) {
-
-        for($j = 1; $j <= $rows - $i; $j++) {
-            print(" ");
-        }
-
-        for($j = 1; $j <= $i; $j++) {
-            print("* ");
-        }
-
-        print ("\n");
-    }
-    ?> </samp>
-                    </pre>
-                </div>
-            </article>
         </section>
     </main>
 </body>
 </html>
-
-
-
-
-

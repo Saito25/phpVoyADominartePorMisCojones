@@ -1,0 +1,19 @@
+:root {
+    /* Colores primarios */
+    --primary_color: #03A9F4;
+    --light_primary_color: #B3E5FC;
+    --dark_primary_color: #0288D1;
+
+    /* Colores complementarios */
+    --primary_ascent_color: #8BC34A;
+
+    /* Colores de texto */
+    --text-primary-color: #FFFFFF;
+    --text-normal-color: #212121;
+    --text-secondary-color: #757575;
+
+    /* Color del separador */
+    --divider-color: #BDBDBD;
+
+    --default-padding: 3.2rem;
+}

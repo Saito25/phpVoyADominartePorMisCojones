@@ -1,0 +1,87 @@
+@import "colors.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-normal-color);
+}
+
+
+
+body {
+    font-size: 16px;;
+}
+
+.header {
+    background-color: var(--dark_primary_color);
+    color: var(--text-primary-color);
+
+    border-bottom: 1px solid var(--divider-color);
+
+    margin-bottom: var(--default-padding);
+}
+
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
+
+.main-section {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main-section-article-div {
+    display: none;
+}
+
+.main-section-article-div:target {
+    display: block;
+}
+
+.main-section-article-div-pre, .main-section-article-div-div {
+    padding: calc(var(--default-padding) / 2) var(--default-padding);
+    border: 1px solid var(--divider-color);
+    border-top: none;
+
+    font-style: normal;
+}
+input {
+    padding: .7rem;
+    border-radius: 4px;
+    border: 1px solid var(--divider-color);
+}
+button {
+    padding: .7rem;
+    border-radius: 4px;
+    background-color: var(--primary_ascent_color);
+    color: var(--text-primary-color);
+    border: 1px solid var(--divider-color);
+}
+
+.form-exercise {
+    margin-bottom: calc(var(--default-padding) / 2);
+}
+
+
+
+/* Formateo estilo enlaces */
+a {
+    text-decoration: none;
+    display: block;
+    color: var(--text-primary-color);
+    background-color: var(--primary_color);
+    padding: calc(var(--default-padding) / 2);
+    font-size: 2rem;
+    border-bottom: 1px solid var(--light_primary_color);
+}
